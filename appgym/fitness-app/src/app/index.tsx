@@ -1,8 +1,17 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
+import { supabase } from '@/lib/supabase'; 
+
 
 export default function HomeScreen() {
+  const testSupabase = async () => {
+  const { data, error } = await supabase.auth.getSession();
+
+  console.log('Supabase:', data);
+  console.log('Erro:', error);
+};
+
   const router = useRouter();
 
   return (
@@ -20,6 +29,14 @@ export default function HomeScreen() {
         onPress={() => router.push('/signup')}>
         <Text style={styles.signupButtonText}>Sign Up</Text>
       </Pressable>
+      <Pressable
+  onPress={testSupabase}
+  style={styles.loginButton}
+>
+  <Text style={styles.loginButtonText}>
+    TESTAR SUPABASE
+  </Text>
+</Pressable>
     </SafeAreaView>
   );
 }
