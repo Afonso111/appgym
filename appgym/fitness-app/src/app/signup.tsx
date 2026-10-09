@@ -47,7 +47,11 @@ export default function SignupScreen() {
       email: email.trim(),
       password,
     });
+    console.log('Utilizador:', data.user?.id);
+    console.log('Sessão criada:', !!data.session);
+    console.log('Erro:', error?.message);
 
+    
     setLoading(false);
 
     if (error) {
