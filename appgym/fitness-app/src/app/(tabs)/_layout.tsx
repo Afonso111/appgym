@@ -35,11 +35,11 @@ export default function TabsLayout() {
       />
 
       <Tabs.Screen
-        name="calendar"
+        name="feed"
         options={{
-          title: 'Calendário',
+          title: 'Feed',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="calendar" size={size} color={color} />
+            <Ionicons name="newspaper-outline" size={size} color={color} />
           ),
         }}
       />
